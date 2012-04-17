@@ -15,7 +15,7 @@ module SimplesIdeias
       #
       module FallBack
         def self.call(day, month, year)
-          Date.new(year, month, [day, Time.days_in_month(month, year)].min)
+          DateTime.new(year, month, [day, Time.days_in_month(month, year)].min)
         end
       end
     end
