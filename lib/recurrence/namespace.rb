@@ -28,7 +28,7 @@ module SimplesIdeias
       when Proc
         @default_starts_date.call
       else
-        Date.today
+        DateTime.today
       end
     end
 
@@ -51,7 +51,7 @@ module SimplesIdeias
     #   Recurrence.default_until_date
     #
     def self.default_until_date
-      @default_until_date ||= Date.new(2037, 12, 31)
+      @default_until_date ||= Date.new(2037, 12, 31).to_datetime
     end
 
     # Set the default ending date globally.
@@ -297,7 +297,7 @@ module SimplesIdeias
     def as_date(date) # :nodoc:
       case date
       when String
-        Date.parse(date)
+        DateTime.parse(date)
       else
         date
       end
